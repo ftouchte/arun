@@ -39,6 +39,7 @@ int main(int argc, char const *argv[]){
 	// loop over events
 	while( reader.next(banklist)){
 		//printf(" ======= EVENT %ld =========\n", nEvent);
+		if (nEvent > 20000) { break;} // process only 20k events
 		int nhit_51 = 0;
 		int nhit_42 = 0;
 		for(int col = 0; col < banklist[1].getRows(); col++){ // loop over columns of AHDC::wf 
