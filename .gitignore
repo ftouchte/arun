@@ -4,3 +4,4 @@
 *.hipo
 *.evio.*
 *.swp
+/output/*

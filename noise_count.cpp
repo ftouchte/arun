@@ -87,15 +87,15 @@ int main(int argc, char const *argv[]){
 		int nhit = nhit_51 + nhit_42;
 		if (nhit > 150) { // 99 + 87 == 186
 			nEvent_full++;
-			printf("\033[31m   > nEvent : %4.0ld, nhit : %3.0d, nhit_51 : %3.0d, nhit_42 : %3.0d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
+			printf("\033[31m   > nEvent : %5ld, nhit : %3d, nhit_51 : %3d, nhit_42 : %3d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
 		}
 		else if ((nhit > 80) && (nhit <= 150)) {
 			nEvent_semi++;
-			printf("\033[33m   > nEvent : %4.0ld, nhit : %3.0d, nhit_51 : %3.0d, nhit_42 : %3.0d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
+			printf("\033[33m   > nEvent : %5ld, nhit : %3d, nhit_51 : %3d, nhit_42 : %3d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
 		}
 		else if ((nhit > 20) && (nhit <= 80)) {
 			nEvent_semi_semi++;
-			printf("\033[32m   > nEvent : %4.0ld, nhit : %3.0d, nhit_51 : %3.0d, nhit_42 : %3.0d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
+			printf("\033[32m   > nEvent : %5ld, nhit : %3d, nhit_51 : %3d, nhit_42 : %3d\n\033[0m", nEvent+1, nhit, nhit_51, nhit_42);
 		}
 		else {
 			// do nothing

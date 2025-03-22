@@ -44,8 +44,10 @@ LDFLAGS   :=
 
 
 #all:  showFile histo plot benchmark simu
-all: noise_count rms 
+all: shape noise_count rms 
 
+shape: shape.o
+	$(CXX) -o shape.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS) 
 
 noise_count: noise_count.o
 	$(CXX) -o noise_count.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS) 
