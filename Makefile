@@ -44,7 +44,19 @@ LDFLAGS   :=
 
 
 #all:  showFile histo plot benchmark simu
-all: shape noise_count rms 
+all: hits hist1d shape noise_count rms hv_scan first_channel  
+
+hits: hits.o
+	$(CXX) -o hits.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS)
+
+hist1d: hist1d.o
+	$(CXX) -o hist1d.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS)
+
+first_channel: first_channel.o
+	$(CXX) -o first_channel.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS)
+
+hv_scan: hv_scan.o fAxis.o fCanvas.o
+	$(CXX) -o hv_scan.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS) $(CAIROLIBS)  $(GTKLIBS)
 
 shape: shape.o
 	$(CXX) -o shape.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS) 
@@ -63,6 +75,6 @@ clean:
 	@rm -rf *.o *~ *.exe example*hipo *.pdf
 
 %.o: %.cpp
-	$(CXX) -c $< -O2 $(CXXFLAGS) $(HIPOCFLAGS) $(LZ4INCLUDES) $(ROOTCFLAGS) $(GTKFLAGS) 
+	$(CXX) -c $< -O2 $(CXXFLAGS) $(HIPOCFLAGS) $(LZ4INCLUDES) $(ROOTCFLAGS) $(GTKFLAGS) $(CAIROFLAGS) 
 	
 
