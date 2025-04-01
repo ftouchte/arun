@@ -44,7 +44,10 @@ LDFLAGS   :=
 
 
 #all:  showFile histo plot benchmark simu
-all: hits hist1d shape noise_count rms hv_scan first_channel  
+all: hits hist1d shape noise_count rms hv_scan first_channel view3D 
+
+view3D: view3D.o fAxis.o fCanvas.o
+	$(CXX) -o view3D.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS) $(CAIROLIBS)  $(GTKLIBS)
 
 hits: hits.o
 	$(CXX) -o hits.exe $^ $(HIPOLIBS) $(LZ4LIBS) $(ROOTLIBS)
